@@ -34,4 +34,9 @@ Ticketee::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Setting the mailer for devise
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
