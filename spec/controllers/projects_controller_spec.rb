@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe ProjectsController do
-  let(:user) do
-    user = Factory(:user)
-    user.confirm!
-    user
-  end
+  
+  let(:user) { create_user! }
 
   context "standard users" do
     it "cannot access the new action" do
