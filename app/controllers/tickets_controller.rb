@@ -18,7 +18,8 @@ class TicketsController < ApplicationController
   end
 
   def show
-
+    @comment = @ticket.comments.build
+    @states = State.all
   end
 
   def edit
@@ -43,7 +44,7 @@ class TicketsController < ApplicationController
 
   private
     def find_project
-      @project = Project.for(current_user).find(params[:project_id])
+      @project = Project.find(params[:project_id])
       rescue ActiveRecord::RecordNotFound
         flash[:alert] = "The project you were looking for could not be found."
         redirect_to root_path
